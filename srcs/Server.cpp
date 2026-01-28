@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   irc.hpp                                            :+:      :+:    :+:   */
+/*   Server.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkalkoul <nkalkoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 02:43:33 by nassuto           #+#    #+#             */
-/*   Updated: 2026/01/24 11:40:27 by nkalkoul         ###   ########.fr       */
+/*   Created: 2026/01/24 11:32:13 by nkalkoul          #+#    #+#             */
+/*   Updated: 2026/01/24 12:18:41 by nkalkoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include <../includes/irc.hpp>
 
-#include "iostream"
-#include "sys/socket.h"
-#include <fcntl.h>
+Server::Server(const Server &s){
+	*this = s;
+}
 
-class Server {
+Server &Server::operator=(const Server &s){
+	if (this != &s){
+		this->_socket = s._socket;
+	}
+	return (*this);
+} 
 
-private:
-	int _socket;
-	
-public:
-	Server(void){};
-	Server(const Server &s);
-	~Server(void){};
-	Server &operator=(const Server &s);
-	int getSocket(void);
-}; 
+int Server::getSocket(void){
+	return (_socket);
+}
