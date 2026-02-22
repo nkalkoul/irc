@@ -1,5 +1,5 @@
-SRCS =	main.cpp RPN.cpp
-CC =	c++ -Wall -Werror -Wextra -std=c++98 -g3
+SRCS =	$(addprefix srcs/, main.cpp Client.cpp Server.cpp)
+CC =	c++ -std=c++98 -g3
 NAME =	ircserv
 OBJS =	$(SRCS:.cpp=.o)
 

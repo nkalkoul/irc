@@ -6,25 +6,20 @@
 /*   By: nkalkoul <nkalkoul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 02:43:33 by nassuto           #+#    #+#             */
-/*   Updated: 2026/01/24 11:40:27 by nkalkoul         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:47:54 by nkalkoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "iostream"
-#include "sys/socket.h"
+#include <iostream>
+#include <string>
+#include <map>
+#include <sys/socket.h>
+#include <sys/epoll.h>
 #include <fcntl.h>
-
-class Server {
-
-private:
-	int _socket;
-	
-public:
-	Server(void){};
-	Server(const Server &s);
-	~Server(void){};
-	Server &operator=(const Server &s);
-	int getSocket(void);
-}; 
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <cerrno>
+#include <cstring>
+#include <cstdlib>
